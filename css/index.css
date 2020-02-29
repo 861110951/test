@@ -1,0 +1,70 @@
+body,ul,li,a{
+    margin:0;
+    padding:0;
+    list-style:none;/* list-style列表样式 */
+    text-decoration:none;/* a标签下划线 */
+}
+.container{
+    position:relative;/* 相对定位 */
+    width:520px;
+    height:280px;
+    border:1px solid #000;
+    margin: 100px auto;
+    overflow:hidden;
+    /* 隐藏两边图片 */
+}
+.main{
+    position:absolute;/* 绝对定位 */
+    left:-520px;
+    width:3640px;/* 520*7得到七张图片的像数大小 */
+    height:280px;
+    font-size:0;/* 因为html里每张图片多有回车，一个回车16字符，要设置为0 */
+}
+.list{
+    position:absolute;/* 绝对定位 ,这里设置定位是因为同级的div设置定位脱离了文档流，ul被覆盖住了*/
+    bottom:20px;/* 底部 */
+    left:50%;
+    margin-left:-35px;/* 往左回移自身的一半宽度 */
+    font-size:0;
+    background: rgba(255, 255, 255, 0.3);/* rgba r代表红色，g代表绿色，b代表蓝色，a代表透明图 */
+    border-radius:7px;/* border-radius边界半径 */
+
+}
+.list li{
+    display:inline-block;/* 改变成为块级元素 */
+    width:8px;
+    height:8px;
+    border-radius:50%;/* radius半径 50%就可以设置成圆 */
+    background:#ccc;
+    margin:3px;
+    cursor:pointer;/* cursor光标pointer指针 */
+}
+.list .active{
+    background:orangered;
+}
+.btn{
+    display:none;
+    position:absolute;
+    top:50%;
+    margin-top:-20px;
+    width:40px;
+    height:40px;
+    color:#fff;
+    background:rgba(0,0,0,0.3);
+    text-align:center;/* 文本排列:中心 */
+    line-height:40px;/* 行间距 */
+    font-size:20px;/* 字体大小 */
+    /* css属性先后顺序，定位影响其他属性的要最先前写
+    其次影响盒模型（内边距、外边距、宽度、高度） */
+}
+.container:hover .btn{
+    display:inline-block;
+    /* 鼠标移动上图片隐藏按钮 */
+}
+#prev{
+    left:0;
+}
+#next{
+    right:0;
+}
+
